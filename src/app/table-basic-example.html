@@ -1,0 +1,122 @@
+<div class="example-container mat-elevation-z8">
+    <h3 class="title">Список поромiв</h3>
+
+    <mat-table #table [dataSource]="dataSource" matSort>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <mat-header-cell *matHeaderCellDef>
+                <div class="text-block" mat-sort-header>PK с/э</div>
+                <form class="example-form">
+                    <mat-form-field class="">
+                        <input matInput placeholder="Пошук" value="">
+                    </mat-form-field>
+                </form>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>
+                <div class="text-block" mat-sort-header>Код порту</div>
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Пошук" value="">
+                    </mat-form-field>
+                </form>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.tavalue1}} </mat-cell>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+            <mat-header-cell *matHeaderCellDef>
+                <div class="text-block" mat-sort-header>Назва судна</div>
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Пошук" value="">
+                    </mat-form-field>
+                </form>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+            <mat-header-cell *matHeaderCellDef>
+                <div class="text-block" mat-sort-header>Найменування агента</div>
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Пошук" value="">
+                    </mat-form-field>
+                </form>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="val">
+            <mat-header-cell *matHeaderCellDef>
+                <div class="text-block" mat-sort-header>Планований прихiд/вiдхiд</div>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Пошук">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <div class="block"><i class="material-icons">arrow_downward</i>{{element.val}}</div>
+                <div class="block"><i class="material-icons">arrow_upward</i>{{element.val}}</div>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="val2">
+            <mat-header-cell *matHeaderCellDef>
+                <div class="text-block" mat-sort-header>Фактичний прихiд/вiдхiд</div>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Пошук">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <div class="block"><i class="material-icons">arrow_downward</i>{{element.val2}}</div>
+                <div class="block"><i class="material-icons">arrow_upward</i>{{element.val2}}</div>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="val3">
+            <mat-header-cell *matHeaderCellDef>
+                <div class="text-block" mat-sort-header>Остання подача документiв</div>
+                <mat-form-field>
+                    <input matInput [matDatepicker]="picker" placeholder="Пошук">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.val3}} </mat-cell>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="val4">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <a href="#"><i class="material-icons">insert_drive_file</i></a>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+
+    <mat-paginator #paginator
+                   [length]="4"
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</div>
